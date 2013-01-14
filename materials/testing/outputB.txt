@@ -1,0 +1,127 @@
+Nodes and their items in preorder after inserting 0
+0
+Nodes and their items in preorder after inserting 23
+0 23
+Nodes and their items in preorder after inserting 46
+0 23 46
+Nodes and their items in preorder after inserting 69
+0 23 46 69
+Nodes and their items in preorder after inserting 92
+0 23 46 69 92
+Nodes and their items in preorder after inserting 15
+0 15 23 46 69 92
+Nodes and their items in preorder after inserting 38
+0 15 23 38 46 69 92
+Nodes and their items in preorder after inserting 61
+46
+0 15 23 38
+61 69 92
+Nodes and their items in preorder after inserting 84
+46
+0 15 23 38
+61 69 84 92
+Nodes and their items in preorder after inserting 7
+46
+0 7 15 23 38
+61 69 84 92
+Nodes and their items in preorder after inserting 30
+46
+0 7 15 23 30 38
+61 69 84 92
+Nodes and their items in preorder after inserting 53
+46
+0 7 15 23 30 38
+53 61 69 84 92
+Nodes and their items in preorder after inserting 76
+46
+0 7 15 23 30 38
+53 61 69 76 84 92
+Nodes and their items in preorder after inserting 99
+46
+0 7 15 23 30 38
+53 61 69 76 84 92 99
+Nodes and their items in preorder after inserting 22
+46
+0 7 15 22 23 30 38
+53 61 69 76 84 92 99
+Nodes and their items in preorder after inserting 45
+23 46
+0 7 15 22
+30 38 45
+53 61 69 76 84 92 99
+Nodes and their items in preorder after inserting 68
+23 46 76
+0 7 15 22
+30 38 45
+53 61 68 69
+84 92 99
+Nodes and their items in preorder after inserting 91
+23 46 76
+0 7 15 22
+30 38 45
+53 61 68 69
+84 91 92 99
+Nodes and their items in preorder after inserting 14
+23 46 76
+0 7 14 15 22
+30 38 45
+53 61 68 69
+84 91 92 99
+Nodes and their items in preorder after inserting 37
+23 46 76
+0 7 14 15 22
+30 37 38 45
+53 61 68 69
+84 91 92 99
+The tree contains 20 items and 5 nodes
+The smallest and largest items in the tree are 0 and 99
+Item 55 was not found from the tree
+Item 76 was found from the tree
+The smallest item >= 93 was found and it is 99
+The largest item <= 40 was found and it is 38
+The last returned item is 38
+Walking 10 steps forward with next(), printing items
+ 45 46 53 61 68 69 76 84 91 92
+Now 10 steps backward with prev(), printing items
+ 91 84 76 69 68 61 53 46 45 38
+All items of the tree in ascending order
+ 0 7 14 15 22 23 30 37 38 45 46 53 61 68 69 76 84 91 92 99
+Nodes and their items in preorder after removing items 30 and 22
+23 46 76
+0 7 14 15
+37 38 45
+53 61 68 69
+84 91 92 99
+Nodes and their items in preorder after removing item 76
+23 46 69
+0 7 14 15
+37 38 45
+53 61 68
+84 91 92 99
+Nodes and their items in preorder after removing item 22
+23 46 69
+0 7 14 15
+37 38 45
+53 61 68
+84 91 92 99
+Nodes and their items in preorder after removing item 38
+15 46 69
+0 7 14
+23 37 45
+53 61 68
+84 91 92 99
+Nodes and their items in preorder after removing item 46
+15 69
+0 7 14
+23 37 45 53 61 68
+84 91 92 99
+Nodes and their items in preorder after removing items 69 and 84
+15 68
+0 7 14
+23 37 45 53 61
+91 92 99
+Nodes and their items in preorder after removing item 92
+15 61
+0 7 14
+23 37 45 53
+68 91 99

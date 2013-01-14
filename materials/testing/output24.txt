@@ -1,0 +1,223 @@
+Nodes and their items in preorder after inserting 0
+0
+Nodes and their items in preorder after inserting 23
+0 23
+Nodes and their items in preorder after inserting 46
+0 23 46
+Nodes and their items in preorder after inserting 69
+46
+0 23
+69
+Nodes and their items in preorder after inserting 92
+46
+0 23
+69 92
+Nodes and their items in preorder after inserting 15
+46
+0 15 23
+69 92
+Nodes and their items in preorder after inserting 38
+23 46
+0 15
+38
+69 92
+Nodes and their items in preorder after inserting 61
+23 46
+0 15
+38
+61 69 92
+Nodes and their items in preorder after inserting 84
+23 46 84
+0 15
+38
+61 69
+92
+Nodes and their items in preorder after inserting 7
+23 46 84
+0 7 15
+38
+61 69
+92
+Nodes and their items in preorder after inserting 30
+23 46 84
+0 7 15
+30 38
+61 69
+92
+Nodes and their items in preorder after inserting 53
+23 46 84
+0 7 15
+30 38
+53 61 69
+92
+Nodes and their items in preorder after inserting 76
+69
+23 46
+0 7 15
+30 38
+53 61
+84
+76
+92
+Nodes and their items in preorder after inserting 99
+69
+23 46
+0 7 15
+30 38
+53 61
+84
+76
+92 99
+Nodes and their items in preorder after inserting 22
+69
+15 23 46
+0 7
+22
+30 38
+53 61
+84
+76
+92 99
+Nodes and their items in preorder after inserting 45
+69
+15 23 46
+0 7
+22
+30 38 45
+53 61
+84
+76
+92 99
+Nodes and their items in preorder after inserting 68
+69
+15 23 46
+0 7
+22
+30 38 45
+53 61 68
+84
+76
+92 99
+Nodes and their items in preorder after inserting 91
+69
+15 23 46
+0 7
+22
+30 38 45
+53 61 68
+84
+76
+91 92 99
+Nodes and their items in preorder after inserting 14
+69
+15 23 46
+0 7 14
+22
+30 38 45
+53 61 68
+84
+76
+91 92 99
+Nodes and their items in preorder after inserting 37
+38 69
+15 23
+0 7 14
+22
+30 37
+46
+45
+53 61 68
+84
+76
+91 92 99
+The tree contains 20 items and 11 nodes
+The smallest and largest items in the tree are 0 and 99
+Item 55 was not found from the tree
+Item 76 was found from the tree
+The smallest item >= 93 was found and it is 99
+The largest item <= 40 was found and it is 38
+The last returned item is 38
+Walking 10 steps forward with next(), printing items
+ 45 46 53 61 68 69 76 84 91 92
+Now 10 steps backward with prev(), printing items
+ 91 84 76 69 68 61 53 46 45 38
+All items of the tree in ascending order
+ 0 7 14 15 22 23 30 37 38 45 46 53 61 68 69 76 84 91 92 99
+Nodes and their items in preorder after removing items 30 and 22
+38 69
+14 23
+0 7
+15
+37
+46
+45
+53 61 68
+84
+76
+91 92 99
+Nodes and their items in preorder after removing item 76
+38 69
+14 23
+0 7
+15
+37
+46
+45
+53 61 68
+91
+84
+92 99
+Nodes and their items in preorder after removing item 22
+38 69
+14 23
+0 7
+15
+37
+46
+45
+53 61 68
+91
+84
+92 99
+Nodes and their items in preorder after removing item 38
+37 69
+14
+0 7
+15 23
+46
+45
+53 61 68
+91
+84
+92 99
+Nodes and their items in preorder after removing item 46
+37 69
+14
+0 7
+15 23
+53
+45
+61 68
+91
+84
+92 99
+Nodes and their items in preorder after removing items 69 and 84
+37 68
+14
+0 7
+15 23
+53
+45
+61
+92
+91
+99
+Nodes and their items in preorder after removing item 92
+37
+14
+0 7
+15 23
+53 68
+45
+61
+91 99
