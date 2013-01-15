@@ -18,8 +18,14 @@ class MyArray<E> {
 		this.contents[this.count-1] = o;
 	}
 
+	// Return object by index
 	public E get(int i) {
-		return contents[i];
+		return this.contents[i];
+	}
+
+	// Return the contents array
+	public E[] getContents() {
+		return this.contents;
 	}
 
 	public int count() {
