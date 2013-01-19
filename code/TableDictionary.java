@@ -4,7 +4,7 @@ import java.util.*;
 
 public final class TableDictionary {
 
-    protected MyArray occurrencesList;
+    protected MyArray<Occurrences> occurrencesList;
     protected File docFile;
     protected File queryFile;
     
@@ -12,7 +12,7 @@ public final class TableDictionary {
     public TableDictionary(String docFileName, String queryFileName) {
 
         // Create a storage for objects containing the occurrences
-        occurrencesList = new MyArray();
+        occurrencesList = new MyArray<Occurrences>(Occurrences.class);
 
         this.docFile = new File(docFileName);
         this.queryFile = new File(queryFileName);
@@ -28,7 +28,7 @@ public final class TableDictionary {
                 for(int i = 0; i < line.length(); i++) {
                     if(line.charAt(i) != ' ') {
                         word += line.charAt(i);
-                        this.storeOccurrence(word, index);
+                        this.storeOccurrences(word, index);
                     }
                     else {
                         word = "";
@@ -43,17 +43,32 @@ public final class TableDictionary {
         } catch (FileNotFoundException e) {
             System.out.println("The document file was not found.");
         }
+        
+        try {
+            Scanner scanner = new Scanner(this.queryFile);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+
+                String[] words = line.split(" ");
+
+                for(int i = 0; i < words.length; i++) {
+                    Occurrences[] o = this.findOccurrences(words[i]);
+                    for(int j = 0; j < o.length; j++) {
+                        this.printOccurrences(o[i]);
+                    }
+                }
+            }
+            scanner.close();
+
+            this.occurrencesList.sort();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("The document file was not found.");
+        }
 
         //DEBUG
         printOccurrences((Occurrences) this.occurrencesList.get(0));
-        printOccurrences((Occurrences) this.occurrencesList.get(1));
-        printOccurrences((Occurrences) this.occurrencesList.get(2));
-        printOccurrences((Occurrences) this.occurrencesList.get(3));
-        printOccurrences((Occurrences) this.occurrencesList.get(4));
-        printOccurrences((Occurrences) this.occurrencesList.get(5));
-        printOccurrences((Occurrences) this.occurrencesList.get(6));
-        printOccurrences((Occurrences) this.occurrencesList.get(7));
-        printOccurrences((Occurrences) this.occurrencesList.get(8));
+        
     }
 
     // Prints occurrences of a single query in correct format
@@ -65,7 +80,7 @@ public final class TableDictionary {
 
     // Stores a single occurrence of a word
     @SuppressWarnings("unchecked")
-    protected void storeOccurrence(String word, int index) {
+    protected void storeOccurrences(String word, int index) {
         // Check if word is already stored
         boolean found = false;
         for(int i = 0; i < this.occurrencesList.getContents().length; i++) {
@@ -81,6 +96,17 @@ public final class TableDictionary {
             o.addIndex(index);
             this.occurrencesList.add(o);
         }
+    }
+    
+    protected Occurrences[] findOccurrences(String query) {
+        MyArray o = new MyArray<Occurrences>(Occurrences.class);
+        for(int i = 0; i < this.occurrencesList.getContents().length; i++) {
+            Occurrences o2 = (Occurrences) this.occurrencesList.getContents()[i];
+            if(o2.getWord().indexOf(query) == 0) {
+                o.add(o2);
+            }
+        }
+        return (Occurrences[]) o.getContents();
     }
 
     // Main method

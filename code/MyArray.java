@@ -1,19 +1,21 @@
-import java.util.Arrays;
+import java.lang.reflect.Array;
 
 // Generic array/list to store any objects that can be compared with each other
 public class MyArray<E extends Comparable<E>> {
-	protected E[] contents;
+	private E[] contents;
+        private Class<E> typeClass;
 
 	@SuppressWarnings("unchecked")
-	public MyArray() {
-		this.contents = (E[]) new Comparable[0];
+	public MyArray(Class<E> typeClass) {
+            this.typeClass = typeClass;
+            this.contents = (E[])Array.newInstance(typeClass, 0);
 	}
 
 	// Add an item to the contents array
 	@SuppressWarnings("unchecked")
 	public void add(E o) {
 		// Increase the new contents array size by one
-		E newContents[] = (E[]) new Comparable[this.contents.length + 1];
+		E newContents[] = (E[])Array.newInstance(typeClass, contents.length + 1);
                 
                 // Loop through the old contents and insert them into the new array
                 for(int i = 0; i < this.contents.length; i++) {

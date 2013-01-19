@@ -1,15 +1,15 @@
 public class Occurrences implements Comparable<Occurrences> {
 	protected String word;
-	protected MyArray indexes;
+	protected MyArray<Integer> indexes;
 
 	public Occurrences(String word) {
 		this.word = word;
-		indexes = new MyArray();
+		indexes = new MyArray(Integer.class);
 	}
 
 	@SuppressWarnings("unchecked")
 	public void addIndex(int i) {
-		indexes.add(i);
+		indexes.add(new Integer(i));
 	}
 
 	public String indexesToString() {
