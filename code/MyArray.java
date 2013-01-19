@@ -1,22 +1,46 @@
 import java.util.Arrays;
 
-class MyArray<E> {
+// Generic array/list to store any objects that can be compared with each other
+public class MyArray<E extends Comparable<E>> {
 	protected E[] contents;
-	protected int count;
 
 	@SuppressWarnings("unchecked")
 	public MyArray() {
-		this.count = 0;
-		this.contents = (E[]) new Object[count];
+		this.contents = (E[]) new Comparable[0];
 	}
 
+	// Add an item to the contents array
+	@SuppressWarnings("unchecked")
 	public void add(E o) {
-		this.count++;
-		if(this.contents.length < this.count) {
-			this.contents = Arrays.copyOf(this.contents, this.count);
+		// Increase the new contents array size by one
+		E newContents[] = (E[]) new Comparable[this.contents.length + 1];
+                
+                // Loop through the old contents and insert them into the new array
+                for(int i = 0; i < this.contents.length; i++) {
+                        newContents[i] = this.contents[i];
 		}
-		this.contents[this.count-1] = o;
+                // Insert the new item at the end of the array
+                newContents[newContents.length - 1] = o;
+                
+                // Replace the old contents array with the new, appended one
+		this.contents = newContents;
 	}
+        
+        // Bubble sort, not so elegant but it works
+        public void sort() {
+            int n = this.contents.length;
+            int i, j;
+            E t;
+            for(i = 0; i < n; i++){
+                for(j = 1; j < (n-i); j++){
+                    if(this.contents[j-1].compareTo(this.contents[j]) > 0){
+                        t = this.contents[j-1];
+                        this.contents[j-1] = this.contents[j];
+                        this.contents[j] = t;
+                    }
+                }
+            }
+        }
 
 	// Return object by index
 	public E get(int i) {
@@ -27,10 +51,4 @@ class MyArray<E> {
 	public E[] getContents() {
 		return this.contents;
 	}
-
-	public int count() {
-		return this.count;
-	}
-
-
 }

@@ -1,10 +1,8 @@
-import java.util.*;
-import java.util.Arrays.*;
-
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.*;
 
-public class TableDictionary {
+public final class TableDictionary {
 
     protected MyArray occurrencesList;
     protected File docFile;
@@ -40,7 +38,7 @@ public class TableDictionary {
             }
             scanner.close();
 
-            Arrays.sort(this.occurrencesList.getContents());
+            this.occurrencesList.sort();
 
         } catch (FileNotFoundException e) {
             System.out.println("The document file was not found.");
@@ -60,7 +58,7 @@ public class TableDictionary {
 
     // Prints occurrences of a single query in correct format
     protected void printOccurrences(Occurrences o) {
-        System.out.println("Positions where \"" + o.getQuery() + "\" occurs:");
+        System.out.println("Positions where \"" + o.getWord() + "\" occurs:");
         System.out.println(o.indexesToString());
         System.out.println();
     }
@@ -72,7 +70,7 @@ public class TableDictionary {
         boolean found = false;
         for(int i = 0; i < this.occurrencesList.getContents().length; i++) {
             Occurrences o = (Occurrences) this.occurrencesList.get(i);
-            if(o.getQuery().compareTo(word) == 0) {
+            if(o.getWord().compareTo(word) == 0) {
                 o.addIndex(index);
                 found = true;
                 break;
@@ -86,14 +84,15 @@ public class TableDictionary {
     }
 
     // Main method
-    public static void main(String[] args){
+    public static void main(String args[]){
         try {
             // Instantiate this class
             TableDictionary td = new TableDictionary(args[0], args[1]); 
         }
         catch (ArrayIndexOutOfBoundsException e) {
             // Two arguments are required
-            System.out.println("Missing required arguments!");
+            e.printStackTrace();
+            //System.out.println("Missing required arguments!");
         }
     }
 }

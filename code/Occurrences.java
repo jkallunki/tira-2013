@@ -1,11 +1,9 @@
-import java.util.List;
-
 public class Occurrences implements Comparable<Occurrences> {
-	protected String query;
+	protected String word;
 	protected MyArray indexes;
 
-	public Occurrences(String query) {
-		this.query = query;
+	public Occurrences(String word) {
+		this.word = word;
 		indexes = new MyArray();
 	}
 
@@ -16,18 +14,18 @@ public class Occurrences implements Comparable<Occurrences> {
 
 	public String indexesToString() {
 		String s = "";
-		for(int i = 0; i < this.indexes.count(); i++) {
+		for(int i = 0; i < this.indexes.getContents().length; i++) {
 			s += " " + indexes.get(i);
 		}
 		return s;
 	}
 
-	public String getQuery() {
-		return this.query;
+	public String getWord() {
+		return this.word;
 	}
 
 	@Override
 	public int compareTo(Occurrences o) {
-		return this.query.compareTo(o.getQuery());
+		return this.word.compareTo(o.getWord());
 	}
 }
