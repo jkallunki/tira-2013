@@ -60,15 +60,9 @@ public final class TableDictionary {
             }
             scanner.close();
 
-            this.occurrencesList.sort();
-
         } catch (FileNotFoundException e) {
-            System.out.println("The document file was not found.");
+            System.out.println("The query file was not found.");
         }
-
-        //DEBUG
-        printOccurrences((Occurrences) this.occurrencesList.get(0));
-        
     }
 
     // Prints occurrences of a single query in correct format
@@ -102,7 +96,7 @@ public final class TableDictionary {
         MyArray o = new MyArray<Occurrences>(Occurrences.class);
         for(int i = 0; i < this.occurrencesList.getContents().length; i++) {
             Occurrences o2 = (Occurrences) this.occurrencesList.getContents()[i];
-            if(o2.getWord().indexOf(query) == 0) {
+            if(o2.getWord().equals(query)) {
                 o.add(o2);
             }
         }
