@@ -2,14 +2,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public final class TableDictionary {
+public final class TreeDictionary {
 
     private MyArray<Occurrences> occurrencesList;
     private File docFile;
     private File queryFile;
     
     @SuppressWarnings("unchecked")
-    public TableDictionary(String docFileName, String queryFileName) {
+    public TreeDictionary(String docFileName, String queryFileName) {
 
         // Create a storage for objects containing the occurrences
         occurrencesList = new MyArray<Occurrences>(Occurrences.class);
@@ -155,7 +155,7 @@ public final class TableDictionary {
     public static void main(String args[]){
         try {
             // Instantiate this class
-            TableDictionary td = new TableDictionary(args[0], args[1]); 
+            TreeDictionary td = new TreeDictionary(args[0], args[1]); 
         }
         catch (ArrayIndexOutOfBoundsException e) {
             // Two arguments are required

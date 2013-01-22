@@ -23,6 +23,10 @@ public class Occurrences implements Comparable<Occurrences> {
 	public String getWord() {
 		return this.word;
 	}
+        
+        public MyArray getIndexes() {
+            return this.indexes;
+        }
 
 	@Override
 	public int compareTo(Occurrences o) {
